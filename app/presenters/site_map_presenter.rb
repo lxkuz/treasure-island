@@ -11,12 +11,12 @@ class SiteMapPresenter
 
   def call
     data.each_with_object({}) do |node, site_map|
-      paths = node.full_path.split('/')
-      if node.full_path == '/' || paths.one?
+      paths = node.key.split('.')
+      if paths.one?
         site_map.merge!(render_node(node))
       else
         parent_node = find_parent_node(site_map, paths)
-        parent_node[:children][node.path] = render_node(node)
+        parent_node[:nodes][node.path] = render_node(node)
       end
     end
   end
@@ -28,7 +28,7 @@ class SiteMapPresenter
   def find_parent_node(site_map, paths)
     parent_node = site_map
     paths[1..-2].each do |path|
-      parent_node = parent_node[:children][path]
+      parent_node = parent_node[:nodes][path]
     end
     parent_node
   end
@@ -39,7 +39,7 @@ class SiteMapPresenter
       full_path: node.full_path,
       key: node.key,
       name: node.name,
-      children: {}
+      nodes: {}
     }
   end
 end
