@@ -13,11 +13,11 @@ class Page < ApplicationRecord
 
   def setup_full_path
     self.full_path = if parent
-      parent_path = parent.full_path
-      "#{parent_path.last == '/' ? parent_path : parent_path + '/'}#{path}"
-    else
-      path
-    end
+                       parent_path = parent.full_path
+                       "#{parent_path.last == '/' ? parent_path : parent_path + '/'}#{path}"
+                     else
+                       path
+                     end
   end
 
   def update_children
