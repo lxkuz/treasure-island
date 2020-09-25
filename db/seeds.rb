@@ -1,7 +1,28 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+pages_data = [
+  ['Home', '/', nil],
+  ['Settings', 'settings', 'Home'],
+  ['Company Profile', 'company_profile', 'Settings'],
+  ['Switches', 'switches', 'Settings'],
+  ['Help', 'help', 'Home'],
+  ['Tickets', 'tickets', 'Help'],
+  ['Create A Ticket', 'create', 'Tickets'],
+  ['FAQ', 'faqs', 'Help']
+]
+
+def create_page(name, path, parent_name)
+  Page.create!(
+    name: name,
+    path: path,
+    parent_id: parent_id(parent_name)
+  )
+end
+
+def parent_id(parent_name)
+  return nil unless parent_name
+
+  Page.find_by_name(parent_name).id
+end
+
+pages_data.each do |(name, path, parent_name)|
+  create_page(name, path, parent_name)
+end
