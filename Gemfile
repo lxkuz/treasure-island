@@ -48,3 +48,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "pry", "~> 0.13.1"
 gem "rubocop", "~> 0.92.0"
 gem "rubocop-rails", "~> 2.8"
+
+gem "react-rails", "~> 2.6"
