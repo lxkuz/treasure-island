@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_25_151814) do
+ActiveRecord::Schema.define(version: 2020_09_25_151815) do
 
   create_table "pages", force: :cascade do |t|
     t.integer "parent_id"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2020_09_25_151814) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.text "full_path"
+    t.text "key"
     t.index ["parent_id"], name: "index_pages_on_parent_id"
   end
 

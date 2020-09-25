@@ -2,6 +2,6 @@
 #
 class SiteMapSearcher
   def self.call
-    Page.reorder(:full_path)
+    Page.reorder(:key)
   end
 end

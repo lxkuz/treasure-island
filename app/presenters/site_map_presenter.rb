@@ -37,6 +37,7 @@ class SiteMapPresenter
     {
       path: node.path,
       full_path: node.full_path,
+      key: node.key,
       name: node.name,
       children: {}
     }

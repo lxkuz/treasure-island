@@ -6,10 +6,16 @@ class Page < ApplicationRecord
 
   validates :name, uniqueness: true, presence: true
 
+  before_save :setup_key
   before_save :setup_full_path
   after_save :update_children
 
   protected
+
+  def setup_key
+    key = name.parameterize.underscore
+    self.key = parent ? "#{parent.key}.#{key}" : key
+  end
 
   def setup_full_path
     self.full_path = if parent
@@ -21,6 +27,6 @@ class Page < ApplicationRecord
   end
 
   def update_children
-    children.each(&:save) if saved_change_to_full_path?
+    children.each(&:save) if saved_change_to_key?
   end
 end
