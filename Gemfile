@@ -50,3 +50,23 @@ gem "rubocop", "~> 0.92.0"
 gem "rubocop-rails", "~> 2.8"
 
 gem "react-rails", "~> 2.6"
+
+gem "rspec", "~> 3.9"
+
+gem "rspec-rails", "~> 4.0"
+
+gem "capybara", "~> 3.33"
+
+gem "simplecov", "~> 0.19.0"
+
+gem "factory_bot", "~> 6.1"
+
+gem "database_cleaner-active_record", "~> 1.8"
+
+gem "selenium-webdriver", "~> 3.142"
+
+gem "dotenv", "~> 2.7"
+
+gem "faker", "~> 2.14"
+
+gem "rubocop-rspec", "~> 1.43"
