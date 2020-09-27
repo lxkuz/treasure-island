@@ -1,0 +1,68 @@
+{
+  "nodes": {
+    "settings": {
+      "path": "settings",
+      "full_path": "/settings",
+      "key": "home.settings",
+      "name": "Settings",
+      "nodes": {
+        "company_profile": {
+          "path": "company_profile",
+          "full_path": "/settings/company_profile",
+          "key": "home.settings.company_profile",
+          "name": "Company Profile",
+          "nodes": {
+            
+          }
+        },
+        "switches": {
+          "path": "switches",
+          "full_path": "/settings/switches",
+          "key": "home.settings.switches",
+          "name": "Switches",
+          "nodes": {
+            
+          }
+        }
+      }
+    },
+    "help": {
+      "path": "help",
+      "full_path": "/help",
+      "key": "home.help",
+      "name": "Help",
+      "nodes": {
+        "tickets": {
+          "path": "tickets",
+          "full_path": "/help/tickets",
+          "key": "home.help.tickets",
+          "name": "Tickets",
+          "nodes": {
+            "create_a_ticket": {
+              "path": "create",
+              "full_path": "/help/tickets/create",
+              "key": "home.help.tickets.create_a_ticket",
+              "name": "Create A Ticket",
+              "nodes": {
+                
+              }
+            }
+          }
+        },
+        "faqs": {
+          "path": "faqs",
+          "full_path": "/help/faqs",
+          "key": "home.help.faqs",
+          "name": "FAQs",
+          "nodes": {
+            
+          }
+        }
+      }
+    }
+  },
+  "path": "/",
+  "full_path": "/",
+  "key": "home",
+  "name": "Home"
+}
