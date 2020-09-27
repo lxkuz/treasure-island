@@ -19,7 +19,6 @@ Open: `http://localhost:3000`
 
 Open `http://localhost:3000/api/v1/site_map` for API endpoint check
 
-
 ## Testing
 
 We use capybara with crome driver testing. Steps to enable this stuff for Mac OS:
@@ -36,3 +35,8 @@ We use capybara with crome driver testing. Steps to enable this stuff for Mac OS
 `open coverage/index.html`
 
 It will open browser during testing and apply Javascript for end-to-end testing of site map.
+
+## Linters
+
+ESLint: `yarn run eslint app/javascripts`
+Rubocop: `bundle exec rubocop .`
