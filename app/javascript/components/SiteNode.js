@@ -16,7 +16,7 @@ const SiteNode = ({ node }) => {
   const { nodes } = node
   return (
     <li>
-      <a href={node.full_path} id={node.key}>{node.name}</a>
+      <a href={node.path} id={node.key}>{node.name}</a>
       {!isEmptyObject(nodes) && renderNodes(nodes)}
     </li>
   )
@@ -26,7 +26,7 @@ SiteNode.propTypes = {
   node: PropTypes.shape({
     name: PropTypes.string,
     key: PropTypes.string,
-    full_path: PropTypes.string,
+    path: PropTypes.string,
     nodes: PropTypes.object
   })
 }

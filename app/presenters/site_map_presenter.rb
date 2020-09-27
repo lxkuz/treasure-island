@@ -37,8 +37,7 @@ class SiteMapPresenter
 
   def render_node(node)
     {
-      path: node.path,
-      full_path: node.full_path,
+      path: node.full_path,
       key: node.key,
       name: node.name,
       nodes: {}
