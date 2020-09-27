@@ -1,4 +1,5 @@
 import React from "react"
+import PropTypes from 'prop-types'
 
 const isEmptyObject = (obj) => Object.keys(obj).length === 0
 
@@ -19,6 +20,15 @@ const SiteNode = ({ node }) => {
       {!isEmptyObject(nodes) && renderNodes(nodes)}
     </li>
   )
+}
+
+SiteNode.propTypes = {
+  node: PropTypes.shape({
+    name: PropTypes.string,
+    key: PropTypes.string,
+    full_path: PropTypes.string,
+    nodes: PropTypes.object
+  })
 }
 
 export default SiteNode
