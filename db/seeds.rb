@@ -6,7 +6,7 @@ pages_data = [
   ['Help', 'help', 'Home'],
   ['Tickets', 'tickets', 'Help'],
   ['Create A Ticket', 'create', 'Tickets'],
-  ['FAQ', 'faqs', 'Help']
+  ['FAQs', 'faqs', 'Help']
 ]
 
 def create_page(name, path, parent_name)
