@@ -10,25 +10,27 @@ class SiteMapPresenter
   end
 
   def call
-    data.each_with_object({}) do |node, site_map|
-      paths = node.key.split('.')
-      if paths.one?
+    site_map = { nodes: {} }
+    data.find_each do |node|
+      node_keys = node.key.split('.')
+      if node_keys.one?
         site_map.merge!(render_node(node))
       else
-        parent_node = find_parent_node(site_map, paths)
-        parent_node[:nodes][node.path] = render_node(node)
+        parent_node = find_parent_node(site_map, node_keys)
+        parent_node[:nodes][build_key(node)] = render_node(node)
       end
     end
+    site_map
   end
 
   private
 
   attr_reader :data
 
-  def find_parent_node(site_map, paths)
+  def find_parent_node(site_map, node_keys)
     parent_node = site_map
-    paths[1..-2].each do |path|
-      parent_node = parent_node[:nodes][path]
+    node_keys[1..-2].each do |node_key|
+      parent_node = parent_node[:nodes][node_key]
     end
     parent_node
   end
@@ -41,5 +43,9 @@ class SiteMapPresenter
       name: node.name,
       nodes: {}
     }
+  end
+
+  def build_key(node)
+    node.name.parameterize.underscore
   end
 end
