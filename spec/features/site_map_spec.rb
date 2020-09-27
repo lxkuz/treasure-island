@@ -20,6 +20,7 @@ describe 'Site Map', type: :feature, js: true do
   end
 
   def wait_a_bit
-    sleep 1
+    waiting_time = 1
+    sleep(waiting_time)
   end
 end
