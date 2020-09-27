@@ -27,6 +27,6 @@ class Page < ApplicationRecord
   end
 
   def update_children
-    children.each(&:save) if saved_change_to_key?
+    reload.children.each(&:save) if saved_change_to_path? || saved_change_to_name?
   end
 end
