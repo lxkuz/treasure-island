@@ -16,13 +16,12 @@ Chrome web browser
 ## How To Start
 
 To start web server:
-`bundle install`
-`bundle exec rake db:create db:migrate db:seed`
-`bundle exec rails s`
-
-Open: `http://localhost:3000`
-
-Open `http://localhost:3000/api/v1/site_map` for API endpoint check
+```
+bundle install
+bundle exec rake db:create db:migrate db:seed
+bundle exec rails s
+```
+Open in web browser: `http://localhost:3000`
 
 ## Testing
 
@@ -94,7 +93,7 @@ And check out all links paths. Children will become nested from `config`
 
 ## Pros Of The Implementation
 
-* All project code structure made to be tiny and easy to support:
+* All project code structure made to be tiny and easy to maintain:
 * Single DB structure with one table only
 * Minimum DB queries during site map rendering (FYI: I use `#find_each` to iterate on data. So in case of huge data set ActiveRecord will use loading in batches to minimize amount of generated ruby objects and limit memory consuming)
 * Site map tree structure is making into `SiteMapPresenter` by one loop so its efficiency is O(n)
