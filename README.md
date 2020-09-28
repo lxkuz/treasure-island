@@ -90,7 +90,7 @@ Current tests coverage is 100% with 10.46 hits per line
 
 ## Linters
 
-ESLint: `yarn run eslint app/javascripts`
+ESLint: `yarn run eslint app/javascript`
 Rubocop: `bundle exec rubocop .`
 
 © Alexey Kuznetsov 2020
