@@ -1,5 +1,7 @@
 # README
 
+## Requirements
+
 * Ruby version
 2.7.1 (installed via RVM)
 
@@ -8,6 +10,8 @@ v14.0.0 (installed via NVM)
 
 * SQLite version
 3.28.0
+
+Chrome web browser
 
 ## Decisions
 
@@ -46,8 +50,19 @@ When data is ready it renders components tree on top of it. Every node renders v
 
 If we change `path` or `name` of parent `Page` it leads to all children update in order to compose correct full path and IDs for everyone.
 
+## Pros Of The Implementation
+
+* All project code structure made to be tiny and easy to support:
+* Single DB structure with one table only
+* Minimum DB queries during site map rendering (FYI: I use `#find_each` to iterate on data. So in case of huge data set ActiveRecord will use loading in batches to minimize amount of generated ruby objects and limit memory consuming)
+* Site map tree structure is making into `SiteMapPresenter` by one loop so its efficiency is O(n)
+* Site map tree data structure comes from API endpoint. It makes client rendering easy with only two React components.
+* `useFetch` is elegand solution for making AJAX call and get data for SiteMap component
+* End-To-End testing with capybara, selenium and schrome driver helps to cover all the process with tests
+
 ## How To Start
 
+To start web server:
 `bundle install`
 `bundle exec rake db:create db:migrate db:seed`
 `bundle exec rails s`
@@ -63,22 +78,19 @@ We use capybara with crome driver testing. Steps to enable this stuff for Mac OS
 1) Install Chrome web browser if you don't have it
 2) Download chromedriver from https://chromedriver.storage.googleapis.com/index.html (85's folders for Chrome 85)
 3) Save it into some path, for example:
-
 `/usr/local/Caskroom/chromedriver/85.0.4183.87/chromedriver`
-
 4) Create `.env` file based on `.env.example`, setup correct `CHROME_DRIVER_PATH` variable as chromedriver full path
 5) Mark driver as verified for Mac OS `xattr -d com.apple.quarantine chromedriver` (into the driver folder)
-6) Run tests:
 
-`RAILS_ENV=test bundle exec rspec spec`
-
+To run tests: `RAILS_ENV=test bundle exec rspec spec`
 It will open browser during testing and apply Javascript for end-to-end testing of site map.
-7) Then to check tests coverage:
-`open coverage/index.html`
 
-
+Then to check ruby tests coverage: `open coverage/index.html`
+Current tests coverage is 100% with 10.46 hits per line 
 
 ## Linters
 
 ESLint: `yarn run eslint app/javascripts`
 Rubocop: `bundle exec rubocop .`
+
+© Alexey Kuznetsov 2020
